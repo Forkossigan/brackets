@@ -20,7 +20,22 @@ module.exports = function check(str, bracketsConfig) {
     if(v==']'||v==')'||v=='}'||v=='|'||v=='2'||v=='4'||v=='6'||v=='7'||v=='8'){
       z=brackets[brackets.length-1];
     }
-    if(z==undefined){
+    if(z==undefined && v=='|'){
+      brackets.push(v);
+      n++;
+      continue;
+    }
+    if(z==undefined && v=='7'){
+      brackets.push(v);
+      n++;
+      continue;
+    }
+    if(z==undefined && v=='8'){
+      brackets.push(v);
+      n++;
+      continue;
+    }
+    else if(z==undefined){
       return false;
     }
     else if(z=='['&&v==']'){
